@@ -163,30 +163,30 @@
     </Link>
   </ItemDefinitionGroup>
   <ItemGroup>
-    <ClCompile Include="source\Grapher\Range.cpp" />
-    <ClCompile Include="source\Grapher\Domain.cpp" />
     <ClCompile Include="source\CSV\Parser.cpp" />
     <ClCompile Include="source\CSV\Table.cpp" />
     <ClCompile Include="source\DataStorage\storage.cpp" />
-    <ClCompile Include="source\Grapher\Chart.cpp" />
+    <ClCompile Include="source\Grapher\Converters\CSVToSeries.cpp" />
+    <ClCompile Include="source\Grapher\Series.cpp" />
+    <ClCompile Include="source\Grapher\Views\Chart.cpp" />
     <ClCompile Include="source\Grapher\Grapher.cpp" />
     <ClCompile Include="source\main.cpp" />
     <ClCompile Include="source\Program\Application.cpp" />
     <ClCompile Include="source\Program\Console.cpp" />
   </ItemGroup>
   <ItemGroup>
-    <ClInclude Include="include\Grapher\Domain.hpp" />
     <ClInclude Include="include\CSV\Parser.hpp" />
     <ClInclude Include="include\CSV\Table.hpp" />
     <ClInclude Include="include\DataStorage\storage.hpp" />
-    <ClInclude Include="include\Grapher\Chart.hpp" />
+    <ClInclude Include="include\Grapher\Converters\CSVToSeries.hpp" />
+    <ClInclude Include="include\Grapher\Series.hpp" />
+    <ClInclude Include="include\Grapher\Views\Chart.hpp" />
     <ClInclude Include="include\Grapher\Grapher.hpp" />
     <ClInclude Include="include\Grapher\Data.hpp" />
     <ClInclude Include="include\Grapher\Data\icon.hpp" />
     <ClInclude Include="include\Program\Application.hpp" />
     <ClInclude Include="include\Program\Console.hpp" />
     <ClInclude Include="include\Program\EventEmitter.hpp" />
-    <ClInclude Include="include\Grapher\Range.hpp" />
     <ClInclude Include="resource.h" />
   </ItemGroup>
   <ItemGroup>

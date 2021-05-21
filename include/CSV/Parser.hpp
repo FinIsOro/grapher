@@ -9,7 +9,7 @@ namespace csv
 	class Parser
 	{
 	public:
-		Table& table();
+		Table& table() const;
 
 		void reset();
 

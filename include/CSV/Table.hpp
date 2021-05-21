@@ -11,6 +11,40 @@ namespace csv
 	public:
 		class Builder;
 
+		struct Size
+		{
+			size_t columns;
+			size_t rows;
+
+			Size(size_t columns = 0, size_t rows = 0);
+		};
+
+		struct Bound
+		{
+			struct Range
+			{
+				size_t start;
+				size_t end;
+
+				Range(size_t start = 0, size_t end = 0);
+
+				inline bool include(size_t value) const;
+				inline bool outclude(size_t value) const;
+
+				inline size_t size() const;
+			};
+
+			Range column;
+			Range row;
+
+			Bound(Range column = Range(), Range row = Range());
+
+			bool include(size_t column, size_t row) const;
+			bool outclude(size_t column, size_t row) const;
+
+			Size size() const;
+		};
+
 		struct CellInfo abstract
 		{
 		public:
@@ -20,21 +54,21 @@ namespace csv
 				String,
 			};
 
-			void* data();
+			void* data() const;
 
-			virtual Type type() abstract;
-			virtual unsigned int size() abstract;
+			virtual Type type() const abstract;
+			virtual size_t size() const abstract;
 
 		protected:
-			Table* parent;
+			Table* parent = nullptr;
 			size_t position = 0;
 		};
 
 		struct NumberCellInfo :
 			Table::CellInfo
 		{
-			Type type() override;
-			unsigned int size() override;
+			Type type() const override;
+			size_t size() const override;
 
 		private:
 			NumberCellInfo(Table* parent, size_t position);
@@ -45,13 +79,13 @@ namespace csv
 		struct StringCellInfo :
 			Table::CellInfo
 		{
-			Type type() override;
-			unsigned int size() override;
+			Type type() const override;
+			size_t size() const override;
 
 		private:
-			unsigned int length;
+			size_t length;
 
-			StringCellInfo(Table* parent, size_t position, unsigned int length);
+			StringCellInfo(Table* parent, size_t position, size_t length);
 
 			friend Builder;
 		};
@@ -68,25 +102,28 @@ namespace csv
 			
 			void line();
 
-			Table& build();
+			Table& build() const;
 
 		private:
-			unsigned int row;
-			unsigned int column;
+			size_t row;
+			size_t column;
 
 			Table* table = new Table();
 		};
 
-		CellInfo* at(unsigned int column, unsigned int row);
+		CellInfo* at(size_t column, size_t row) const;
+
+		Size volume() const;
 
 	private:
-		std::map<unsigned int, std::map<unsigned int, CellInfo*>> cells;
+		std::map<size_t, std::map<size_t, CellInfo*>> cells;
 		std::deque<NumberCellInfo> numberCells;
 		std::deque<StringCellInfo> stringCells;
 
 		std::string data;
+		Size size;
 
-		Table() = default;
+		Table();
 
 		friend CellInfo;
 		friend Builder;

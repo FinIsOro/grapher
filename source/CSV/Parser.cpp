@@ -1,5 +1,16 @@
 #include <CSV/Parser.hpp>
 
+static inline void trim(std::string& string)
+{
+	string.erase(string.begin(), std::find_if(string.begin(), string.end(), [](unsigned char symbol) {
+		return !std::isspace(symbol);
+	}));
+
+	string.erase(std::find_if(string.rbegin(), string.rend(), [](unsigned char symbol) {
+		return !std::isspace(symbol);
+	}).base(), string.end());
+}
+
 bool parseFloat(const char* data, size_t length, float& out)
 {
 	float result = 0;
@@ -31,7 +42,7 @@ bool parseFloat(const char* data, size_t length, float& out)
 
 namespace csv
 {
-	Table& Parser::table()
+	Table& Parser::table() const
 	{
 		return builder.build();
 	}
@@ -58,10 +69,14 @@ namespace csv
 			{
 				float number;
 
-				if (parseFloat(start, begin - start, number))
+				std::string cell(start, begin - start);
+
+				trim(cell);
+
+				if (parseFloat(cell.c_str(), cell.length(), number))
 					builder.append(number);
 				else
-					builder.append(std::string(start, begin - start));
+					builder.append(cell);
 
 				start = begin + 1;
 

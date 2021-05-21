@@ -2,22 +2,85 @@
 
 namespace csv
 {
-	Table::CellInfo* Table::at(unsigned int column, unsigned int row)
+	Table::CellInfo* Table::at(size_t column, size_t row) const
 	{
-		return cells[column][row];
+		if (cells.find(column) == cells.end())
+			return nullptr;
+
+		auto& rows = cells.at(column);
+
+		if (rows.find(row) == rows.end())
+			return nullptr;
+
+		return rows.at(row);
 	}
 
-	void* Table::CellInfo::data()
+	Table::Table()
+	{ }
+
+	Table::Size Table::volume() const
+	{
+		return size;
+	}
+
+	Table::Size::Size(size_t columns, size_t rows) :
+		columns(columns), rows(rows)
+	{ }
+
+	Table::Bound::Bound(Range column, Range row) :
+		column(column), row(row)
+	{ }
+
+	bool Table::Bound::include(size_t column, size_t row) const
+	{
+		return this->column.include(column) && this->row.include(row);
+	}
+
+	bool Table::Bound::outclude(size_t column, size_t row) const
+	{
+		return this->column.outclude(column) || this->row.outclude(row);
+	}
+
+	Table::Size Table::Bound::size() const
+	{
+		return Size(column.size(), row.size());
+	}
+
+	Table::Bound::Range::Range(size_t start, size_t end) :
+		start(start), end(end)
+	{ }
+
+	inline bool Table::Bound::Range::include(size_t value) const
+	{
+		return value >= start && value <= end;
+	}
+
+	inline bool Table::Bound::Range::outclude(size_t value) const
+	{
+		return value < start || value > end;
+	}
+
+	size_t Table::Bound::Range::size() const
+	{
+		return end - start;
+	}
+
+	void* Table::CellInfo::data() const
 	{
 		return (void*)(parent->data.c_str() + position);
 	}
 
-	Table::CellInfo::Type Table::NumberCellInfo::type()
+	size_t Table::CellInfo::size() const
+	{
+		return 0;
+	}
+
+	Table::CellInfo::Type Table::NumberCellInfo::type() const
 	{
 		return Type::Number;
 	}
 
-	unsigned int Table::NumberCellInfo::size()
+	size_t Table::NumberCellInfo::size() const
 	{
 		return sizeof(float);
 	}
@@ -28,16 +91,17 @@ namespace csv
 		this->position = position;
 	}
 
-	Table::CellInfo::Type Table::StringCellInfo::type()
+	Table::CellInfo::Type Table::StringCellInfo::type() const
 	{
 		return Type::String;
 	}
-	unsigned int Table::StringCellInfo::size()
+
+	size_t Table::StringCellInfo::size() const
 	{
 		return length;
 	}
 
-	Table::StringCellInfo::StringCellInfo(Table* parent, size_t position, unsigned int length)
+	Table::StringCellInfo::StringCellInfo(Table* parent, size_t position, size_t length)
 	{
 		this->parent = parent;
 		this->position = position;
@@ -73,15 +137,19 @@ namespace csv
 		table->cells[column++][row] = &table->stringCells.back();
 
 		table->data += value;
+		table->size.columns = std::max(table->size.columns, column);
+		table->size.rows = row + 1;
 	}
 
 	void Table::Builder::line()
 	{
+		table->size.columns = std::max(table->size.columns, column);
+	
 		column = 0;
 		row++;
 	}
 
-	Table& Table::Builder::build()
+	Table& Table::Builder::build() const
 	{
 		return *table;
 	}

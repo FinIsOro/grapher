@@ -27,7 +27,7 @@
     <ClCompile Include="source\Program\Console.cpp">
       <Filter>Source</Filter>
     </ClCompile>
-    <ClCompile Include="source\Grapher\Chart.cpp">
+    <ClCompile Include="source\Grapher\Views\Chart.cpp">
       <Filter>Source</Filter>
     </ClCompile>
     <ClCompile Include="source\DataStorage\storage.cpp">
@@ -39,10 +39,10 @@
     <ClCompile Include="source\CSV\Parser.cpp">
       <Filter>Source</Filter>
     </ClCompile>
-    <ClCompile Include="source\Grapher\Domain.cpp">
+    <ClCompile Include="source\Grapher\Series.cpp">
       <Filter>Source</Filter>
     </ClCompile>
-    <ClCompile Include="source\Grapher\Range.cpp">
+    <ClCompile Include="source\Grapher\Converters\CSVToSeries.cpp">
       <Filter>Source</Filter>
     </ClCompile>
   </ItemGroup>
@@ -65,7 +65,7 @@
     <ClInclude Include="include\DataStorage\storage.hpp">
       <Filter>Headers</Filter>
     </ClInclude>
-    <ClInclude Include="include\Grapher\Chart.hpp">
+    <ClInclude Include="include\Grapher\Views\Chart.hpp">
       <Filter>Headers</Filter>
     </ClInclude>
     <ClInclude Include="include\Grapher\Data.hpp">
@@ -80,10 +80,10 @@
     <ClInclude Include="include\CSV\Parser.hpp">
       <Filter>Headers</Filter>
     </ClInclude>
-    <ClInclude Include="include\Grapher\Domain.hpp">
+    <ClInclude Include="include\Grapher\Series.hpp">
       <Filter>Headers</Filter>
     </ClInclude>
-    <ClInclude Include="include\Grapher\Range.hpp">
+    <ClInclude Include="include\Grapher\Converters\CSVToSeries.hpp">
       <Filter>Headers</Filter>
     </ClInclude>
   </ItemGroup>
