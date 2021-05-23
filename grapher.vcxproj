@@ -98,6 +98,7 @@
       <ConformanceMode>true</ConformanceMode>
       <AdditionalIncludeDirectories>$(SolutionDir)include\;$(SolutionDir)modules\SFML\include\;</AdditionalIncludeDirectories>
       <LanguageStandard>stdcpplatest</LanguageStandard>
+      <ObjectFileName>$(IntDir)%(RelativeDir)</ObjectFileName>
     </ClCompile>
     <Link>
       <SubSystem>Console</SubSystem>
@@ -116,6 +117,7 @@
       <ConformanceMode>true</ConformanceMode>
       <AdditionalIncludeDirectories>$(SolutionDir)include\;$(SolutionDir)modules\SFML\include\;%(AdditionalIncludeDirectories)</AdditionalIncludeDirectories>
       <LanguageStandard>stdcpplatest</LanguageStandard>
+      <ObjectFileName>$(IntDir)%(RelativeDir)</ObjectFileName>
     </ClCompile>
     <Link>
       <SubSystem>Console</SubSystem>
@@ -134,6 +136,7 @@
       <ConformanceMode>true</ConformanceMode>
       <AdditionalIncludeDirectories>$(SolutionDir)include\;$(SolutionDir)modules\SFML\include\;</AdditionalIncludeDirectories>
       <LanguageStandard>stdcpplatest</LanguageStandard>
+      <ObjectFileName>$(IntDir)%(RelativeDir)</ObjectFileName>
     </ClCompile>
     <Link>
       <SubSystem>Console</SubSystem>
@@ -152,6 +155,7 @@
       <AdditionalIncludeDirectories>$(SolutionDir)include\;$(SolutionDir)modules\SFML\include\;%(AdditionalIncludeDirectories)</AdditionalIncludeDirectories>
       <PreprocessorDefinitions>SFML_STATIC;%(PreprocessorDefinitions)</PreprocessorDefinitions>
       <LanguageStandard>stdcpplatest</LanguageStandard>
+      <ObjectFileName>$(IntDir)%(RelativeDir)</ObjectFileName>
     </ClCompile>
     <Link>
       <SubSystem>Console</SubSystem>
@@ -163,35 +167,57 @@
     </Link>
   </ItemDefinitionGroup>
   <ItemGroup>
-    <ClCompile Include="source\CSV\Parser.cpp" />
-    <ClCompile Include="source\CSV\Table.cpp" />
-    <ClCompile Include="source\DataStorage\storage.cpp" />
-    <ClCompile Include="source\Grapher\Converters\CSVToSeries.cpp" />
-    <ClCompile Include="source\Grapher\Series.cpp" />
-    <ClCompile Include="source\Grapher\Views\Chart.cpp" />
-    <ClCompile Include="source\Grapher\Grapher.cpp" />
+    <ClCompile Include="source\CSV\Core\Reader.cpp" />
+    <ClCompile Include="source\CSV\Core\Table.Builder.cpp" />
+    <ClCompile Include="source\CSV\Core\Table.cpp" />
+    <ClCompile Include="source\CSV\Core\Table.Position.cpp" />
+    <ClCompile Include="source\CSV\Core\Table.Size.cpp" />
+    <ClCompile Include="source\CSV\Core\Writer.cpp" />
+    <ClCompile Include="source\CSV\Utils\String.cpp" />
+    <ClCompile Include="source\DataStorage\Main.cpp" />
+    <ClCompile Include="source\Grapher\Core\Application.cpp" />
+    <ClCompile Include="source\Grapher\Data\icon.cpp" />
+    <ClCompile Include="source\Graph\Core\Series.cpp" />
+    <ClCompile Include="source\Graph\Core\Series.Domain.cpp" />
+    <ClCompile Include="source\Graph\Graphics\Chart.cpp" />
+    <ClCompile Include="source\Graph\Graphics\Chart.ViewArea.cpp" />
     <ClCompile Include="source\main.cpp" />
-    <ClCompile Include="source\Program\Application.cpp" />
-    <ClCompile Include="source\Program\Console.cpp" />
+    <ClCompile Include="source\Program\Utils\Console.cpp" />
+    <ClCompile Include="source\Program\Core\WindowApplication.cpp" />
   </ItemGroup>
   <ItemGroup>
-    <ClInclude Include="include\CSV\Parser.hpp" />
-    <ClInclude Include="include\CSV\Table.hpp" />
-    <ClInclude Include="include\DataStorage\storage.hpp" />
-    <ClInclude Include="include\Grapher\Converters\CSVToSeries.hpp" />
-    <ClInclude Include="include\Grapher\Series.hpp" />
-    <ClInclude Include="include\Grapher\Views\Chart.hpp" />
-    <ClInclude Include="include\Grapher\Grapher.hpp" />
+    <ClInclude Include="include\CSV\Core.hpp" />
+    <ClInclude Include="include\CSV\Core\Reader.hpp" />
+    <ClInclude Include="include\CSV\Core\Table.Builder.hpp" />
+    <ClInclude Include="include\CSV\Core\Table.hpp" />
+    <ClInclude Include="include\CSV\Core\Table.Position.hpp" />
+    <ClInclude Include="include\CSV\Core\Table.Size.hpp" />
+    <ClInclude Include="include\CSV\Core\Writer.hpp" />
+    <ClInclude Include="include\CSV\Utils.hpp" />
+    <ClInclude Include="include\CSV\Utils\String.hpp" />
+    <ClInclude Include="include\DataStorage\Main.hpp" />
+    <ClInclude Include="include\Grapher\Core.hpp" />
+    <ClInclude Include="include\Graph\Core\Series.Domain.hpp" />
+    <ClInclude Include="include\Graph\Core\Series.hpp" />
+    <ClInclude Include="include\Graph\Core\Series.Range.hpp" />
     <ClInclude Include="include\Grapher\Data.hpp" />
+    <ClInclude Include="include\Grapher\Core\Application.hpp" />
     <ClInclude Include="include\Grapher\Data\icon.hpp" />
-    <ClInclude Include="include\Program\Application.hpp" />
-    <ClInclude Include="include\Program\Console.hpp" />
-    <ClInclude Include="include\Program\EventEmitter.hpp" />
+    <ClInclude Include="include\Graph\Core.hpp" />
+    <ClInclude Include="include\Graph\Graphics.hpp" />
+    <ClInclude Include="include\Graph\Graphics\Chart.hpp" />
+    <ClInclude Include="include\Graph\Graphics\Chart.ViewArea.hpp" />
+    <ClInclude Include="include\Program\Core\Application.hpp" />
+    <ClInclude Include="include\Program\Utils\Console.hpp" />
+    <ClInclude Include="include\Program\Utils.hpp" />
+    <ClInclude Include="include\Program\Utils\EventEmitter.hpp" />
+    <ClInclude Include="include\Program\Core.hpp" />
+    <ClInclude Include="include\Program\Core\WindowApplication.hpp" />
     <ClInclude Include="resource.h" />
   </ItemGroup>
   <ItemGroup>
-    <None Include="include\Program\Application.inl" />
-    <None Include="include\Program\EventEmitter.inl" />
+    <None Include="include\Program\Utils\EventEmitter.inl" />
+    <None Include="source\Graph\Core\Series.Range.cpp" />
   </ItemGroup>
   <ItemGroup>
     <ResourceCompile Include="grapher.rc" />

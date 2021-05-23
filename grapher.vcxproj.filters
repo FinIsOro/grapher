@@ -18,82 +18,146 @@
     <ClCompile Include="source\main.cpp">
       <Filter>Source</Filter>
     </ClCompile>
-    <ClCompile Include="source\Grapher\Grapher.cpp">
+    <ClCompile Include="source\Grapher\Core\Application.cpp">
       <Filter>Source</Filter>
     </ClCompile>
-    <ClCompile Include="source\Program\Application.cpp">
+    <ClCompile Include="source\Program\Utils\Console.cpp">
       <Filter>Source</Filter>
     </ClCompile>
-    <ClCompile Include="source\Program\Console.cpp">
+    <ClCompile Include="source\DataStorage\Main.cpp">
       <Filter>Source</Filter>
     </ClCompile>
-    <ClCompile Include="source\Grapher\Views\Chart.cpp">
+    <ClCompile Include="source\Grapher\Data\icon.cpp">
       <Filter>Source</Filter>
     </ClCompile>
-    <ClCompile Include="source\DataStorage\storage.cpp">
+    <ClCompile Include="source\Program\Core\WindowApplication.cpp">
       <Filter>Source</Filter>
     </ClCompile>
-    <ClCompile Include="source\CSV\Table.cpp">
+    <ClCompile Include="source\CSV\Core\Reader.cpp">
       <Filter>Source</Filter>
     </ClCompile>
-    <ClCompile Include="source\CSV\Parser.cpp">
+    <ClCompile Include="source\CSV\Core\Writer.cpp">
       <Filter>Source</Filter>
     </ClCompile>
-    <ClCompile Include="source\Grapher\Series.cpp">
+    <ClCompile Include="source\CSV\Core\Table.cpp">
       <Filter>Source</Filter>
     </ClCompile>
-    <ClCompile Include="source\Grapher\Converters\CSVToSeries.cpp">
+    <ClCompile Include="source\CSV\Utils\String.cpp">
+      <Filter>Source</Filter>
+    </ClCompile>
+    <ClCompile Include="source\CSV\Core\Table.Size.cpp">
+      <Filter>Source</Filter>
+    </ClCompile>
+    <ClCompile Include="source\CSV\Core\Table.Builder.cpp">
+      <Filter>Source</Filter>
+    </ClCompile>
+    <ClCompile Include="source\CSV\Core\Table.Position.cpp">
+      <Filter>Source</Filter>
+    </ClCompile>
+    <ClCompile Include="source\Graph\Graphics\Chart.cpp">
+      <Filter>Source</Filter>
+    </ClCompile>
+    <ClCompile Include="source\Graph\Core\Series.cpp">
+      <Filter>Source</Filter>
+    </ClCompile>
+    <ClCompile Include="source\Graph\Core\Series.Domain.cpp">
+      <Filter>Source</Filter>
+    </ClCompile>
+    <ClCompile Include="source\Graph\Graphics\Chart.ViewArea.cpp">
       <Filter>Source</Filter>
     </ClCompile>
   </ItemGroup>
   <ItemGroup>
-    <ClInclude Include="include\Grapher\Grapher.hpp">
+    <ClInclude Include="include\Grapher\Core\Application.hpp">
       <Filter>Headers</Filter>
     </ClInclude>
     <ClInclude Include="resource.h">
       <Filter>Headers</Filter>
     </ClInclude>
-    <ClInclude Include="include\Program\Application.hpp">
+    <ClInclude Include="include\Program\Core\Application.hpp">
       <Filter>Headers</Filter>
     </ClInclude>
-    <ClInclude Include="include\Program\Console.hpp">
+    <ClInclude Include="include\Program\Utils\Console.hpp">
       <Filter>Headers</Filter>
     </ClInclude>
-    <ClInclude Include="include\Program\EventEmitter.hpp">
+    <ClInclude Include="include\Program\Utils\EventEmitter.hpp">
       <Filter>Headers</Filter>
     </ClInclude>
-    <ClInclude Include="include\DataStorage\storage.hpp">
-      <Filter>Headers</Filter>
-    </ClInclude>
-    <ClInclude Include="include\Grapher\Views\Chart.hpp">
-      <Filter>Headers</Filter>
-    </ClInclude>
-    <ClInclude Include="include\Grapher\Data.hpp">
+    <ClInclude Include="include\DataStorage\Main.hpp">
       <Filter>Headers</Filter>
     </ClInclude>
     <ClInclude Include="include\Grapher\Data\icon.hpp">
       <Filter>Headers</Filter>
     </ClInclude>
-    <ClInclude Include="include\CSV\Table.hpp">
+    <ClInclude Include="include\Grapher\Data.hpp">
       <Filter>Headers</Filter>
     </ClInclude>
-    <ClInclude Include="include\CSV\Parser.hpp">
+    <ClInclude Include="include\Graph\Core.hpp">
       <Filter>Headers</Filter>
     </ClInclude>
-    <ClInclude Include="include\Grapher\Series.hpp">
+    <ClInclude Include="include\Program\Core\WindowApplication.hpp">
       <Filter>Headers</Filter>
     </ClInclude>
-    <ClInclude Include="include\Grapher\Converters\CSVToSeries.hpp">
+    <ClInclude Include="include\Program\Core.hpp">
+      <Filter>Headers</Filter>
+    </ClInclude>
+    <ClInclude Include="include\Program\Utils.hpp">
+      <Filter>Headers</Filter>
+    </ClInclude>
+    <ClInclude Include="include\CSV\Core.hpp">
+      <Filter>Headers</Filter>
+    </ClInclude>
+    <ClInclude Include="include\CSV\Utils.hpp">
+      <Filter>Headers</Filter>
+    </ClInclude>
+    <ClInclude Include="include\CSV\Core\Table.hpp">
+      <Filter>Headers</Filter>
+    </ClInclude>
+    <ClInclude Include="include\CSV\Core\Reader.hpp">
+      <Filter>Headers</Filter>
+    </ClInclude>
+    <ClInclude Include="include\CSV\Utils\String.hpp">
+      <Filter>Headers</Filter>
+    </ClInclude>
+    <ClInclude Include="include\CSV\Core\Writer.hpp">
+      <Filter>Headers</Filter>
+    </ClInclude>
+    <ClInclude Include="include\CSV\Core\Table.Size.hpp">
+      <Filter>Headers</Filter>
+    </ClInclude>
+    <ClInclude Include="include\CSV\Core\Table.Position.hpp">
+      <Filter>Headers</Filter>
+    </ClInclude>
+    <ClInclude Include="include\CSV\Core\Table.Builder.hpp">
+      <Filter>Headers</Filter>
+    </ClInclude>
+    <ClInclude Include="include\Graph\Graphics.hpp">
+      <Filter>Headers</Filter>
+    </ClInclude>
+    <ClInclude Include="include\Graph\Core\Series.hpp">
+      <Filter>Headers</Filter>
+    </ClInclude>
+    <ClInclude Include="include\Graph\Core\Series.Range.hpp">
+      <Filter>Headers</Filter>
+    </ClInclude>
+    <ClInclude Include="include\Graph\Core\Series.Domain.hpp">
+      <Filter>Headers</Filter>
+    </ClInclude>
+    <ClInclude Include="include\Graph\Graphics\Chart.hpp">
+      <Filter>Headers</Filter>
+    </ClInclude>
+    <ClInclude Include="include\Grapher\Core.hpp">
+      <Filter>Headers</Filter>
+    </ClInclude>
+    <ClInclude Include="include\Graph\Graphics\Chart.ViewArea.hpp">
       <Filter>Headers</Filter>
     </ClInclude>
   </ItemGroup>
   <ItemGroup>
-    <None Include="include\Program\EventEmitter.inl">
+    <None Include="include\Program\Utils\EventEmitter.inl">
       <Filter>Headers</Filter>
     </None>
-    <None Include="include\Program\Application.inl">
-      <Filter>Headers</Filter>
-    </None>
+    <None Include="source\Graph\Core\Series.Range.cpp" />
   </ItemGroup>
   <ItemGroup>
     <ResourceCompile Include="grapher.rc">
