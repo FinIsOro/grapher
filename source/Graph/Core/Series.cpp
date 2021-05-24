@@ -5,22 +5,22 @@
 
 namespace graph
 {
-    const Series::Domain& Series::domain()
+    const Series::Domain& Series::domain() const
     {
         return _domain;
     }
 
-    const std::vector<Series::Range> Series::ranges()
+    const std::vector<Series::Range> Series::ranges() const
     {
         return _ranges;
     }
 
-    size_t Series::length()
+    size_t Series::length() const
     {
         return _domain._values.size();
     }
 
-    inline size_t Series::width()
+    size_t Series::width() const
     {
         return _ranges.size();
     }
@@ -37,8 +37,15 @@ namespace graph
             size_t setIndex = domainFind - domainBegin;
             size_t rangeIndex = 0;
 
+            size_t valuesAmount = values.size();
+
             for (auto& range : _ranges)
-                range._values[setIndex] = values[rangeIndex++];
+            {
+                float value = values[rangeIndex++];
+
+                if (rangeIndex < valuesAmount && value != NAN)
+                    range._values[setIndex] = value;
+            }
 
             return;
         }
@@ -144,13 +151,13 @@ namespace graph
                 _ranges.pop_back();
     }
 
-    void Series::checkRangeIndex(size_t rangeIndex)
+    void Series::checkRangeIndex(size_t rangeIndex) const
     {
         if (rangeIndex >= _ranges.size())
             throw std::out_of_range("range index out of range");
     }
 
-    void Series::checkIndex(size_t index)
+    void Series::checkIndex(size_t index) const
     {
         if (index >= length())
             throw std::out_of_range("index out of range");

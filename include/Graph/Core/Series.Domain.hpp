@@ -5,8 +5,8 @@ class Domain
 	friend graph::Series;
 
 public:
-	const std::vector<float>& values();
-	size_t length();
+	const std::vector<float>& values() const;
+	size_t length() const;
 
 private:
 	std::vector<float> _values;

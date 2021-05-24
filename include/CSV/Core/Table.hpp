@@ -1,5 +1,7 @@
 #pragma once
 
+#include <CSV/Utils.hpp>
+
 #include <string>
 #include <vector>
 #include <deque>
@@ -13,6 +15,7 @@ namespace csv
 
 			#include <CSV/Core/Table.Position.hpp>
 			#include <CSV/Core/Table.Size.hpp>
+			#include <CSV/Core/Table.Area.hpp>
 			#include <CSV/Core/Table.Builder.hpp>
 
 		#undef CSV_TABLE_NESTING

@@ -63,7 +63,22 @@
     <ClCompile Include="source\Graph\Core\Series.Domain.cpp">
       <Filter>Source</Filter>
     </ClCompile>
-    <ClCompile Include="source\Graph\Graphics\Chart.ViewArea.cpp">
+    <ClCompile Include="source\Grapher\Core\CSVConverter.cpp">
+      <Filter>Source</Filter>
+    </ClCompile>
+    <ClCompile Include="source\Graph\Utils\UI.cpp">
+      <Filter>Source</Filter>
+    </ClCompile>
+    <ClCompile Include="source\Graph\Graphics\ViewArea.cpp">
+      <Filter>Source</Filter>
+    </ClCompile>
+    <ClCompile Include="source\CSV\Utils\Range.cpp">
+      <Filter>Source</Filter>
+    </ClCompile>
+    <ClCompile Include="source\CSV\Core\Table.Area.cpp">
+      <Filter>Source</Filter>
+    </ClCompile>
+    <ClCompile Include="source\Graph\Core\Series.Range.cpp">
       <Filter>Source</Filter>
     </ClCompile>
   </ItemGroup>
@@ -86,7 +101,7 @@
     <ClInclude Include="include\DataStorage\Main.hpp">
       <Filter>Headers</Filter>
     </ClInclude>
-    <ClInclude Include="include\Grapher\Data\icon.hpp">
+    <ClInclude Include="include\Grapher\data\icon.hpp">
       <Filter>Headers</Filter>
     </ClInclude>
     <ClInclude Include="include\Grapher\Data.hpp">
@@ -149,7 +164,25 @@
     <ClInclude Include="include\Grapher\Core.hpp">
       <Filter>Headers</Filter>
     </ClInclude>
-    <ClInclude Include="include\Graph\Graphics\Chart.ViewArea.hpp">
+    <ClInclude Include="..\..\..\..\Data\Google Drive\Study\1 курс\2 семестр\ОП\Курсова робота\grapher\include\CSV\Core\Table.Area.hpp">
+      <Filter>Headers</Filter>
+    </ClInclude>
+    <ClInclude Include="include\CSV\Core\Table.Area.hpp">
+      <Filter>Headers</Filter>
+    </ClInclude>
+    <ClInclude Include="include\CSV\Utils\Range.hpp">
+      <Filter>Headers</Filter>
+    </ClInclude>
+    <ClInclude Include="include\Graph\Utils.hpp">
+      <Filter>Headers</Filter>
+    </ClInclude>
+    <ClInclude Include="include\Graph\Utils\UI.hpp">
+      <Filter>Headers</Filter>
+    </ClInclude>
+    <ClInclude Include="include\Graph\Graphics\ViewArea.hpp">
+      <Filter>Headers</Filter>
+    </ClInclude>
+    <ClInclude Include="include\Grapher\Core\CSVConverter.hpp">
       <Filter>Headers</Filter>
     </ClInclude>
   </ItemGroup>
@@ -157,7 +190,6 @@
     <None Include="include\Program\Utils\EventEmitter.inl">
       <Filter>Headers</Filter>
     </None>
-    <None Include="source\Graph\Core\Series.Range.cpp" />
   </ItemGroup>
   <ItemGroup>
     <ResourceCompile Include="grapher.rc">

@@ -27,29 +27,27 @@ namespace grapher
 				window.setIcon(iconSize.x, iconSize.y, icon.getPixelsPtr());
 			}
 		}
+
+		graph::Series series;
+
+		series.addRange();
+
+		series.push(-3, { -3 });
+		series.push(-2, { 3 });
+		series.push(-1, { 4 });
+		series.push(0, { 0 });
+		series.push(1, { 5 });
+
+		chart.add(series);
 	}
 
 	void Application::update(float elapsed)
 	{
-		
+		chart.setSize((Vector2f)window.getSize());
 	}
 
 	void Application::render()
 	{
-		auto windowSize = window.getSize();
-
-		VertexArray vertices;
-
-		vertices.setPrimitiveType(LinesStrip);
-
-		for (size_t x = 0; x < windowSize.x; ++x)
-		{
-			float argument = x - windowSize.x / 2.f;
-			float function = (1 / (1 - argument / windowSize.x * 2.f));
-
-			vertices.append({ Vector2f((float)(argument + windowSize.x / 2.f), (float)(windowSize.y / 2.f - function)) });
-		}
-
-		window.draw(vertices);
+		window.draw(chart);
 	}
 }
