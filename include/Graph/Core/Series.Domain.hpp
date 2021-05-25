@@ -10,6 +10,8 @@ public:
 
 private:
 	std::vector<float> _values;
+
+	Domain() = default;
 };
 
 #endif

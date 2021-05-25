@@ -59,6 +59,9 @@ namespace csv
 
 	bool Reader::continuable()
 	{
+		if (input->eof())
+			return buffer.length() != 0;
+
 		return !input->eof();
 	}
 }

@@ -25,7 +25,7 @@ namespace graph
 		this->size = size;
 	}
 
-	const ViewArea& Chart::viewArea() const
+	ViewArea& Chart::viewArea()
 	{
 		return _viewArea;
 	}
@@ -68,12 +68,24 @@ namespace graph
 	void Chart::draw(RenderTarget& target, RenderStates states) const
 	{
 		Vector2f viewAreaSize = graph::scale({ 1, 1 }, { size.x, size.y });
-		Vector2f viewAreaPosition = Vector2f(size.x - viewAreaSize.x, (size.y - viewAreaSize.y) / 2);
+		Vector2f viewAreaPosition = (size - viewAreaSize) / 2.f;
 
-		sf::RectangleShape mask;
+		Vector2f center = _viewArea.transform(
+			0, 0,
+			viewAreaPosition.x, viewAreaPosition.y,
+			viewAreaSize.x, viewAreaSize.y
+		);
 
-		mask.setSize(viewAreaSize);
-		mask.setPosition(viewAreaPosition);
+		Color axisesColor = Color(255, 70, 70);
+		VertexArray axises(Lines);
+
+		axises.append({ { position.x, center.y }, axisesColor });
+		axises.append({ { position.x + size.x, center.y }, axisesColor });
+
+		axises.append({ { center.x, position.y }, axisesColor });
+		axises.append({ { center.x, position.y + size.y }, axisesColor });
+
+		target.draw(axises);
 
 		for (auto& series : _series)
 		{

@@ -180,6 +180,7 @@
     <ClCompile Include="source\Grapher\Core\Application.cpp" />
     <ClCompile Include="source\Grapher\Core\CSVConverter.cpp" />
     <ClCompile Include="source\Grapher\Data\icon.cpp" />
+    <ClCompile Include="source\Grapher\Util\Number.cpp" />
     <ClCompile Include="source\Graph\Core\Series.cpp" />
     <ClCompile Include="source\Graph\Core\Series.Domain.cpp" />
     <ClCompile Include="source\Graph\Core\Series.Range.cpp" />
@@ -206,6 +207,8 @@
     <ClInclude Include="include\DataStorage\Main.hpp" />
     <ClInclude Include="include\Grapher\Core.hpp" />
     <ClInclude Include="include\Grapher\Core\CSVConverter.hpp" />
+    <ClInclude Include="include\Grapher\Utils.hpp" />
+    <ClInclude Include="include\Grapher\Util\Number.hpp" />
     <ClInclude Include="include\Graph\Core\Series.Domain.hpp" />
     <ClInclude Include="include\Graph\Core\Series.hpp" />
     <ClInclude Include="include\Graph\Core\Series.Range.hpp" />
@@ -221,13 +224,9 @@
     <ClInclude Include="include\Program\Core\Application.hpp" />
     <ClInclude Include="include\Program\Utils\Console.hpp" />
     <ClInclude Include="include\Program\Utils.hpp" />
-    <ClInclude Include="include\Program\Utils\EventEmitter.hpp" />
     <ClInclude Include="include\Program\Core.hpp" />
     <ClInclude Include="include\Program\Core\WindowApplication.hpp" />
     <ClInclude Include="resource.h" />
-  </ItemGroup>
-  <ItemGroup>
-    <None Include="include\Program\Utils\EventEmitter.inl" />
   </ItemGroup>
   <ItemGroup>
     <ResourceCompile Include="grapher.rc" />

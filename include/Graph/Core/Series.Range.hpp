@@ -12,6 +12,8 @@ public:
 
 private:
 	std::vector<float> _values;
+
+	Range() = default;
 };
 
 #endif

@@ -10,7 +10,12 @@ namespace graph
         return _domain;
     }
 
-    const std::vector<Series::Range> Series::ranges() const
+    std::vector<Series::Range>& Series::ranges()
+    {
+        return _ranges;
+    }
+
+    const std::vector<Series::Range>& Series::ranges() const
     {
         return _ranges;
     }
@@ -52,9 +57,10 @@ namespace graph
 
         auto domainInsert = std::upper_bound(domainBegin, domainEnd, key);
 
+        size_t insertIndex = domainInsert - domainBegin;
+
         _domain._values.insert(domainInsert, key);
         
-        size_t insertIndex = domainInsert - domainBegin;
         size_t rangeIndex = 0;
         
         for (auto& range : _ranges)
@@ -119,7 +125,7 @@ namespace graph
         _ranges.push_back(Range());
 
         if (_ranges.size() != 1)
-            _ranges.back()._values.resize(_ranges[0]._values.size());
+            _ranges.back()._values.resize(_ranges[0]._values.size(), NAN);
     }
 
     void Series::addRanges(size_t amount)
@@ -149,6 +155,12 @@ namespace graph
                 _ranges.erase(_ranges.begin() + rangeIndex);
             else
                 _ranges.pop_back();
+    }
+
+    void Series::clear()
+    {
+        _domain._values.clear();
+        _ranges.clear();
     }
 
     void Series::checkRangeIndex(size_t rangeIndex) const

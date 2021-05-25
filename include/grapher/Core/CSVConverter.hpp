@@ -7,23 +7,28 @@ namespace grapher
 {
 	class CSVConverter
 	{
-		bool continuable() const;
+	public:
+		CSVConverter(csv::Table& table);
+		CSVConverter() = default;
+
+		bool continuable();
 		
 		void target(csv::Table& table);
 		csv::Table& target();
 
 		void reset();
 
-		graph::Series next();
+		graph::Series& next();
 
 	private:
-		csv::Table* _targer;
+		csv::Table* _target;
+		csv::Table::Position position;
+
+		graph::Series current;
 
 		std::vector<csv::Table::Area> areas;
 
-		size_t row;
-		size_t column;
-
+		std::vector<csv::Table::Area>::iterator insideArea();
 		void skipAreas();
 	};
 }

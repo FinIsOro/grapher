@@ -11,13 +11,16 @@ public:
 
 	csv::Table::Position position;
 
+	Builder(csv::Table& table);
+	Builder() = default;
+
 	void target(csv::Table& table);
 	csv::Table& target();
 
 	void append(std::string data = "\n", Append type = Append::Safely);
 
 private:
-	csv::Table* _targer = nullptr;
+	csv::Table* _target = nullptr;
 };
 
 #endif

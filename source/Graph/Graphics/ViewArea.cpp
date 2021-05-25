@@ -25,6 +25,9 @@ namespace graph
 		float zoomedWidth = width / times;
 		float zoomedHeight = height / times;
 
+		offsetX += .5f;
+		offsetY += .5f;
+
 		x = x + (width - zoomedWidth) * offsetX;
 		y = y + (height - zoomedHeight) * offsetY;
 

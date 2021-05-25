@@ -16,7 +16,8 @@ namespace graph
 		#undef GRAPH_SERIES_NESTING
 
 		const Domain& domain() const;
-		const std::vector<Range> ranges() const;
+		std::vector<Range>& ranges();
+		const std::vector<Range>& ranges() const;
 
 		inline size_t length() const;
 		inline size_t width() const;
@@ -32,8 +33,10 @@ namespace graph
 		void addRange();
 		void addRanges(size_t amount);
 
-		void removeRange(size_t rangeIndex = -1);
+		void removeRange(size_t rangeIndex);
 		void removeRanges(size_t rangeIndex, size_t amount);
+
+		void clear();
 
 	private:
 		Domain _domain;

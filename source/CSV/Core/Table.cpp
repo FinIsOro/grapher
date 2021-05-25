@@ -13,12 +13,6 @@ namespace csv
 	{
 		checkSize(column, row);
 
-		if (column >= _size.columns)
-			throw std::out_of_range("column index out of range");
-
-		if (row >= _size.rows)
-			throw std::out_of_range("row index out of range");
-
 		if (column == _size.columns - 1)
 			return std::string(rows[row].c_str() + pointers[column][row]);
 		

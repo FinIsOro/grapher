@@ -81,6 +81,9 @@
     <ClCompile Include="source\Graph\Core\Series.Range.cpp">
       <Filter>Source</Filter>
     </ClCompile>
+    <ClCompile Include="source\Grapher\Util\Number.cpp">
+      <Filter>Source</Filter>
+    </ClCompile>
   </ItemGroup>
   <ItemGroup>
     <ClInclude Include="include\Grapher\Core\Application.hpp">
@@ -93,9 +96,6 @@
       <Filter>Headers</Filter>
     </ClInclude>
     <ClInclude Include="include\Program\Utils\Console.hpp">
-      <Filter>Headers</Filter>
-    </ClInclude>
-    <ClInclude Include="include\Program\Utils\EventEmitter.hpp">
       <Filter>Headers</Filter>
     </ClInclude>
     <ClInclude Include="include\DataStorage\Main.hpp">
@@ -185,11 +185,12 @@
     <ClInclude Include="include\Grapher\Core\CSVConverter.hpp">
       <Filter>Headers</Filter>
     </ClInclude>
-  </ItemGroup>
-  <ItemGroup>
-    <None Include="include\Program\Utils\EventEmitter.inl">
+    <ClInclude Include="include\Grapher\Util\Number.hpp">
       <Filter>Headers</Filter>
-    </None>
+    </ClInclude>
+    <ClInclude Include="include\Grapher\Utils.hpp">
+      <Filter>Headers</Filter>
+    </ClInclude>
   </ItemGroup>
   <ItemGroup>
     <ResourceCompile Include="grapher.rc">

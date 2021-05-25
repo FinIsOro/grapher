@@ -6,21 +6,25 @@
 
 namespace csv
 {
+	Table::Builder::Builder(csv::Table& table) :
+		_target(&table)
+	{ }
+
 	void Table::Builder::target(csv::Table& table)
 	{
-		_targer = &table;
+		_target = &table;
 
 		position.reset();
 	}
 
 	csv::Table& Table::Builder::target()
 	{
-		return *_targer;
+		return *_target;
 	}
 
 	void Table::Builder::append(std::string data, Append type)
 	{
-		if (_targer == nullptr)
+		if (_target == nullptr)
 			return;
 
 		if (type == Append::Unsafely)
@@ -33,14 +37,14 @@ namespace csv
 				return;
 			}
 
-			auto targetSize = _targer->size();
+			auto targetSize = _target->size();
 
-			_targer->resize(
+			_target->resize(
 				std::max(position.column + 1, targetSize.columns),
 				std::max(position.row + 1, targetSize.rows)
 			);
 
-			_targer->set(position.column, position.row, data);
+			_target->set(position.column, position.row, data);
 
 			position.column++;
 

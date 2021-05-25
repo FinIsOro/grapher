@@ -1,7 +1,7 @@
 #pragma once
 
 #include <Program/Core.hpp>
-#include <Graph/Graphics/Chart.hpp>
+#include <Graph/Graphics.hpp>
 
 namespace grapher
 {
@@ -9,12 +9,16 @@ namespace grapher
 		public program::WindowApplication
 	{
 	public:
+		graph::Chart chart;
 		
 
 	private:
-		graph::Chart chart;
+		bool chartHolding = false;
+		sf::Vector2f startHoldingPosition;
+		graph::ViewArea chartHoldingVeiwArea;
 
 		void init() override;
+		void process(const sf::Event& event) override;
 		void update(float elapsed) override;
 		void render() override;
 	};

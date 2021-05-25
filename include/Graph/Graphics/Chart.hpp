@@ -11,15 +11,15 @@ namespace graph
 		public sf::Drawable
 	{
 	public:
-		inline const sf::Vector2f& getPosition() const;
+		const sf::Vector2f& getPosition() const;
 		void setPosition(const sf::Vector2f& position);
 
-		inline const sf::Vector2f& getSize() const;
+		const sf::Vector2f& getSize() const;
 		void setSize(const sf::Vector2f& size);
 
-		inline const ViewArea& viewArea() const;
-		inline const std::vector<Series>& series() const;
-		inline size_t length() const;
+		ViewArea& viewArea();
+		const std::vector<Series>& series() const;
+		size_t length() const;
 
 		void add(const Series& series);
 		void remove(size_t index);
@@ -29,7 +29,7 @@ namespace graph
 		sf::Vector2f position;
 		sf::Vector2f size;
 
-		ViewArea _viewArea = ViewArea(-5, -5, 10, 10);
+		ViewArea _viewArea = ViewArea(-50, -50, 100, 100);
 		std::vector<Series> _series;
 
 		inline void checkIndex(size_t index) const;
