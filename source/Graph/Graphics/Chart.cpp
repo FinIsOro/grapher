@@ -76,14 +76,13 @@ namespace graph
 			viewAreaSize.x, viewAreaSize.y
 		);
 
-		Color axisesColor = Color(255, 70, 70);
 		VertexArray axises(Lines);
 
-		axises.append({ { position.x, center.y }, axisesColor });
-		axises.append({ { position.x + size.x, center.y }, axisesColor });
+		axises.append({ { position.x, center.y } });
+		axises.append({ { position.x + size.x, center.y } });
 
-		axises.append({ { center.x, position.y }, axisesColor });
-		axises.append({ { center.x, position.y + size.y }, axisesColor });
+		axises.append({ { center.x, position.y } });
+		axises.append({ { center.x, position.y + size.y } });
 
 		target.draw(axises);
 
