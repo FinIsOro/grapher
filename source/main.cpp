@@ -1,6 +1,5 @@
 #include <Grapher/Core.hpp>
 #include <CSV/Core.hpp>
-#include <Graph/Core.hpp>
 
 #include <iostream>
 #include <fstream>
@@ -14,16 +13,18 @@ int main(int argumentsNumber, char** arguments)
 {
     program::Console::Show();
 
-	auto application = new grapher::Application();
+	auto application = new Application();
 
 	for (size_t argumentIndex = 1; argumentIndex < argumentsNumber; argumentIndex++)
 	{
+		cout << arguments[argumentIndex] << endl;
+		
 		ifstream csvFile(arguments[argumentIndex]);
 
 		Reader csvReader(csvFile);
 		Table table;
 		Table::Builder tableBuilder(table);
-
+		
 		while (csvReader.continuable())
 			tableBuilder.append(csvReader.read(), Table::Builder::Append::Unsafely);
 

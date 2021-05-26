@@ -39,6 +39,9 @@ namespace grapher
 		switch (event.type)
 		{
 		case Event::MouseWheelScrolled: {
+			if (chartHolding)
+				break;
+				
 			ViewArea& chartViewArea = chart.viewArea();
 			Vector2f chartSize = chart.getSize();
 
@@ -89,6 +92,8 @@ namespace grapher
 	void Application::update(float elapsed)
 	{
 		chart.setSize((Vector2f)window.getSize());
+
+		chart.update();
 
 		if (chartHolding)
 		{

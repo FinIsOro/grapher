@@ -61,7 +61,7 @@ namespace csv
 	{
 		if (input->eof())
 			return buffer.length() != 0;
-
-		return !input->eof();
+		
+		return !(!input || input->eof());
 	}
 }

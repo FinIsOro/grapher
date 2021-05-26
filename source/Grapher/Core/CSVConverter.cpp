@@ -16,6 +16,9 @@ namespace grapher
 	{
 		auto targetSize = _target->size();
 
+		if (targetSize.columns == 0 || targetSize.rows == 0)
+			return false;
+
 		skipAreas();
 
 		while (position.column != -1)

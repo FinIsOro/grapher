@@ -39,6 +39,9 @@ namespace grapher
 
 	bool Number::parse(const char* data, size_t length, float& out)
 	{
+		if (length == 0)
+			return false;
+		
 		float result = 0;
 		float rank = 1;
 

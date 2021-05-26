@@ -192,7 +192,6 @@
     <ClCompile Include="source\Program\Core\WindowApplication.cpp" />
   </ItemGroup>
   <ItemGroup>
-    <ClInclude Include="..\..\..\..\Data\Google Drive\Study\1 курс\2 семестр\ОП\Курсова робота\grapher\include\CSV\Core\Table.Area.hpp" />
     <ClInclude Include="include\CSV\Core.hpp" />
     <ClInclude Include="include\CSV\Core\Reader.hpp" />
     <ClInclude Include="include\CSV\Core\Table.Area.hpp" />

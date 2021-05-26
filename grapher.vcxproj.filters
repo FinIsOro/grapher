@@ -164,9 +164,6 @@
     <ClInclude Include="include\Grapher\Core.hpp">
       <Filter>Headers</Filter>
     </ClInclude>
-    <ClInclude Include="..\..\..\..\Data\Google Drive\Study\1 курс\2 семестр\ОП\Курсова робота\grapher\include\CSV\Core\Table.Area.hpp">
-      <Filter>Headers</Filter>
-    </ClInclude>
     <ClInclude Include="include\CSV\Core\Table.Area.hpp">
       <Filter>Headers</Filter>
     </ClInclude>

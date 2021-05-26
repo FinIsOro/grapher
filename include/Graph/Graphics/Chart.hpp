@@ -11,6 +11,8 @@ namespace graph
 		public sf::Drawable
 	{
 	public:
+		Chart();
+		
 		const sf::Vector2f& getPosition() const;
 		void setPosition(const sf::Vector2f& position);
 
@@ -25,16 +27,21 @@ namespace graph
 		void remove(size_t index);
 		const Series& get(size_t index) const;
 
+		void update();
+
 	private:
 		sf::Vector2f position;
 		sf::Vector2f size;
+		std::vector<sf::Color> colors;
 
+		sf::Font font;
+		
 		ViewArea _viewArea = ViewArea(-50, -50, 100, 100);
 		std::vector<Series> _series;
 
 		inline void checkIndex(size_t index) const;
 
-		virtual void draw(sf::RenderTarget& target, sf::RenderStates states) const override;
+		void draw(sf::RenderTarget& target, sf::RenderStates states) const override;
 
 	};
 }

@@ -19,8 +19,8 @@ namespace graph
 		std::vector<Range>& ranges();
 		const std::vector<Range>& ranges() const;
 
-		inline size_t length() const;
-		inline size_t width() const;
+		size_t length() const;
+		size_t width() const;
 
 		void push(float key, std::vector<float> values);
 
