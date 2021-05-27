@@ -21,6 +21,9 @@ int main(int argumentsNumber, char** arguments)
 		
 		ifstream csvFile(arguments[argumentIndex]);
 
+		if (!csvFile)
+			continue;
+		
 		Reader csvReader(csvFile);
 		Table table;
 		Table::Builder tableBuilder(table);

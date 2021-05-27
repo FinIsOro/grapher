@@ -30,6 +30,8 @@ namespace grapher
 				window.setIcon(iconSize.x, iconSize.y, icon.getPixelsPtr());
 			}
 		}
+
+		chart.defaultView();
 	}
 
 	void Application::process(const sf::Event& event)

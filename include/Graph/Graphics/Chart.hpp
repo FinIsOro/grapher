@@ -27,6 +27,8 @@ namespace graph
 		void remove(size_t index);
 		const Series& get(size_t index) const;
 
+		void defaultView();
+
 		void update();
 
 	private:

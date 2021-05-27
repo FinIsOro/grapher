@@ -100,6 +100,48 @@ namespace graph
 		return _series[index];
 	}
 
+	void Chart::defaultView()
+	{
+		float minX = INFINITY, maxX = -INFINITY;
+		float minY = INFINITY, maxY = -INFINITY;
+
+		for (auto& series : _series)
+		{
+			for (float domainValue : series.domain().values())
+			{
+				if (domainValue > maxX)
+					maxX = domainValue;
+
+				if (domainValue < minX)
+					minX = domainValue;
+			}
+			
+			for (auto& range : series.ranges())
+				for (float rangeValue : range.values())
+				{
+					if (rangeValue > maxY)
+						maxY = rangeValue;
+
+					if (rangeValue < minY)
+						minY = rangeValue;
+				}
+		}
+
+		if (isinf(minX) || isinf(maxX) || isinf(minY) || isinf(maxY))
+			return;
+
+		float width = maxX - minX;
+		float height = maxY - minY;
+
+		Vector2 viewAreaSize = scale({ 1.f, 1.f }, { width * 1.1f, height * 1.1f }, true);
+		Vector2f viewAreaPosition = Vector2f((maxX + minX) / 2, (maxY + minY) / 2) - viewAreaSize / 2.f;
+
+		_viewArea.width = viewAreaSize.x;
+		_viewArea.height = viewAreaSize.x;
+		_viewArea.x = viewAreaPosition.x;
+		_viewArea.y = viewAreaPosition.y;
+	}
+
 	void Chart::update()
 	{
 		_viewArea.height = _viewArea.width * size.y / size.x;
@@ -243,7 +285,12 @@ namespace graph
 		axises.append({ { center.x, position.y } });
 		axises.append({ { center.x, position.y + size.y } });
 
+		divisionText.setString("0");
+		divisionText.setOrigin(divisionText.getLocalBounds().width, 0);
+		divisionText.setPosition(floor(center.x) - 8, floor(center.y) + 8);
+
 		target.draw(axises);
+		target.draw(divisionText);
 		
 		for (auto& series : _series)
 		{
